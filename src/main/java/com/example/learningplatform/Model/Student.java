@@ -48,7 +48,11 @@ public class Student {
     @JsonIgnore // we don't want to show the trackings they should be shown by course id
     private Set<CourseTracking> courseTrackings;
 
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private Set<Certificate> certificates;
 
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    private Set<Order> orders;
 }
