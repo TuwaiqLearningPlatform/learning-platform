@@ -10,8 +10,8 @@ import lombok.Data;
 @AllArgsConstructor
 public class CourseDTO {
 
-    @NotEmpty(message = "the name field is required.")
-    private String name;
+    @NotEmpty(message = "the title field is required.")
+    private String title;
 
     @NotNull(message = "the price field is required.")
     @PositiveOrZero(message = "the price must be either 0 or positive number.")
