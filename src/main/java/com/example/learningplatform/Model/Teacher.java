@@ -8,6 +8,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -50,4 +51,11 @@ public class Teacher {
     private Integer yearsOfExperience;
 
     private String token = null;
+
+
+    // Relations
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
+    private Set<Course> courses;
 }
