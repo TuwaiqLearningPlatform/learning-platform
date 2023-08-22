@@ -10,6 +10,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -50,5 +51,10 @@ public class Course {
     @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     @JsonIgnore
     private Teacher teacher;
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+    private Set<CourseItem> courseItems;
+
 
 }
