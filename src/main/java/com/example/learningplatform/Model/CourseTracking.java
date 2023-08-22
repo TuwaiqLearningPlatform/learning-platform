@@ -16,7 +16,6 @@ public class CourseTracking {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(columnDefinition = "bit(1) default 0")
@@ -30,7 +29,9 @@ public class CourseTracking {
     private Student student;
 
 
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "courseTracking")
+    // Relations
+
+    @OneToOne
     @MapsId
     @JsonIgnore
     private CourseItem courseItem;
