@@ -3,12 +3,14 @@ package com.example.learningplatform.Advice;
 
 import com.example.learningplatform.Api.ApiException.ApiException;
 import com.example.learningplatform.Api.ApiResponse.ApiResponse;
+import com.example.learningplatform.Api.ApiResponse.ErrorResponse;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.InvalidDataAccessResourceUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.FieldError;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
 
 @RestControllerAdvice
 public class ControllerAdvice {
@@ -30,9 +33,15 @@ public class ControllerAdvice {
 
     // Server Validation Exception
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public ResponseEntity<ApiResponse> MethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        String msg = e.getFieldError().getDefaultMessage();
-        return ResponseEntity.status(400).body(new ApiResponse(msg));
+    public ResponseEntity<ArrayList<ErrorResponse>> MethodArgumentNotValidException(MethodArgumentNotValidException e) {
+        ArrayList<ErrorResponse> errorResponses = new ArrayList<>();
+
+        for(FieldError fieldError: e.getFieldErrors()) {
+            ErrorResponse errorResponse = new ErrorResponse(fieldError.getObjectName(), fieldError.getDefaultMessage(), fieldError.getField(), fieldError.getCode());
+            errorResponses.add(errorResponse);
+        }
+
+        return ResponseEntity.status(400).body(errorResponses);
     }
 
     // Server Validation Exception

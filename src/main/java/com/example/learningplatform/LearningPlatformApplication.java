@@ -8,7 +8,7 @@ public class LearningPlatformApplication {
 
     public static void main(String[] args) {
 
-        ////// fff
+        // test new message
         SpringApplication.run(LearningPlatformApplication.class, args);
     }
 
