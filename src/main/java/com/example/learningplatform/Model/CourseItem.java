@@ -51,4 +51,8 @@ public class CourseItem {
     private Course course;
 
 
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "courseItem")
+    @PrimaryKeyJoinColumn
+    private CourseTracking courseTracking;
+
 }

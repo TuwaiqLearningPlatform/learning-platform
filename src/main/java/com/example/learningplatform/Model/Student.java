@@ -1,10 +1,13 @@
 package com.example.learningplatform.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -41,5 +44,8 @@ public class Student {
 
     // Relations
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    @JsonIgnore // we don't want to show the trackings they should be shown by course id
+    private Set<CourseTracking> courseTrackings;
 
 }
