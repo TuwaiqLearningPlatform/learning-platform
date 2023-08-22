@@ -57,4 +57,8 @@ public class Course {
     private Set<CourseItem> courseItems;
 
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
+    private Set<Certificate> certificates;
+
+
 }
