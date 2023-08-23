@@ -22,11 +22,10 @@ public class TeacherService {
     }
 
 
-
     public Teacher findById(Integer id) throws ApiException {
         Teacher teacher = teacherRepository.findTeacherById(id);
 
-        if(teacher == null) {
+        if (teacher == null) {
             throw new ApiException("teacher not found.");
         }
 
@@ -38,9 +37,7 @@ public class TeacherService {
 
         uniqueChecks(teacher);
 
-
         teacherRepository.save(teacher);
-
 
 
         return teacher;
@@ -48,12 +45,15 @@ public class TeacherService {
 
     public Teacher updateTeacher(Integer id, TeacherDTO teacherDTO) throws ApiException {
         Teacher saved_teacher = findById(id);
+        String email = saved_teacher.getEmail();
+        String username = saved_teacher.getUsername();
+
         Teacher teacher = setTeacherAttributes(saved_teacher, teacherDTO);
 
         // ensure not update the username, email
 
-        teacher.setEmail(saved_teacher.getEmail());
-        teacher.setUsername(saved_teacher.getUsername());
+        teacher.setEmail(email);
+        teacher.setUsername(username);
 
         // any relation will go here.
 
@@ -74,14 +74,14 @@ public class TeacherService {
 
     // search for teacher by name
     public List<Teacher> searchForTeachersByName(String name) throws ApiException {
-        if(name == null) {
+        if (name == null) {
             throw new ApiException("the name can not be empty.");
         }
 
         List<Teacher> teachers = teacherRepository.lookForTeachersByName(name);
 
-        if(teachers.isEmpty()) {
-            throw new ApiException("no teachers found with your query ("+ name +") .");
+        if (teachers.isEmpty()) {
+            throw new ApiException("no teachers found with your query (" + name + ") .");
         }
 
         return teachers;
@@ -91,7 +91,7 @@ public class TeacherService {
     private Teacher setTeacherAttributes(Teacher teacher, TeacherDTO teacherDTO) {
         teacher.setName(teacherDTO.getName());
         teacher.setUsername(teacherDTO.getUsername());
-        teacher.setPassword(teacherDTO.getPassword());
+        teacher.setPassword(LoginService.encryptPassword(teacherDTO.getPassword()));
         teacher.setEmail(teacherDTO.getEmail());
         teacher.setYearsOfExperience(teacherDTO.getYearsOfExperience());
 
@@ -99,11 +99,11 @@ public class TeacherService {
     }
 
     private void uniqueChecks(Teacher teacher) throws ApiException {
-        if(teacherRepository.checkEmail(teacher.getEmail()) != null) {
+        if (teacherRepository.checkEmail(teacher.getEmail()) != null) {
             throw new ApiException("the email is used.");
         }
 
-        if(teacherRepository.checkUsername(teacher.getUsername()) != null) {
+        if (teacherRepository.checkUsername(teacher.getUsername()) != null) {
             throw new ApiException("the username is used.");
         }
     }
