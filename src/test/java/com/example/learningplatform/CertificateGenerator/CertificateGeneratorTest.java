@@ -23,11 +23,15 @@ public class CertificateGeneratorTest {
         // open image
 
         final BufferedImage image = ImageIO.read(new File(CERTIFICATE_PATH));
-
+        Color color = new Color(1, 4, 73);
         Graphics g = image.getGraphics();
-        g.setColor(Color.ORANGE);
-        g.setFont(g.getFont().deriveFont(50f));
-        g.drawString("Abdullah", 100, 100);
+        g.setColor(color);
+
+        Font font = new Font("Arial", Font.BOLD, 70);
+        g.setFont(font);
+        g.drawString("Abdullah Alharbi", 100, 880);
+        g.drawString("Python Programming", 100, 1324);
+
         g.dispose();
 
         ImageIO.write(image, "png", new File(WRITE_TO + "abdullah_certificate.png"));
