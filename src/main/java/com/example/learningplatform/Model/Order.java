@@ -41,5 +41,10 @@ public class Order {
     private Teacher teacher;
 
 
+    @ManyToOne
+    @JoinColumn(name = "course_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Course course;
+
 
 }

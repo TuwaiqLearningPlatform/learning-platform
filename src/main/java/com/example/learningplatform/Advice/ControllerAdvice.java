@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
+import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
@@ -35,6 +36,11 @@ public class ControllerAdvice {
     public ResponseEntity<ApiResponse<String>> NoSuchFileException(NoSuchFileException e) {
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<String>("File path is invalid."));
+    }
+    @ExceptionHandler(IOException.class)
+    public ResponseEntity<ApiResponse<String>> IOException(IOException e) {
+
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse<String>("I/O Exception occurred."));
     }
 
 

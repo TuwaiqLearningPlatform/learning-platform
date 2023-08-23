@@ -9,4 +9,6 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     Order findOrderById(Integer id);
 
+    Order findOrderByStudentIdAndCourseId(Integer studentID, Integer courseID);
+
 }

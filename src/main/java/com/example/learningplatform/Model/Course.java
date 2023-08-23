@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.aspectj.weaver.ast.Or;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -57,8 +58,15 @@ public class Course {
     private Set<CourseItem> courseItems;
 
 
+    //// TODO delete this later.
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "course")
     private Set<Certificate> certificates;
 
+
+    @OneToMany(cascade = CascadeType.DETACH, mappedBy = "course")
+    private Set<Order> orders;
+
+    @Column(columnDefinition = "boolean not null default true ")
+    private Boolean isActive = true;
 
 }

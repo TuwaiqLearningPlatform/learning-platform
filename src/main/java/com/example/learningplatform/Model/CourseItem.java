@@ -34,13 +34,7 @@ public class CourseItem {
     // read more: https://www.baeldung.com/hibernate-persist-json-object
     @Convert(converter = ListHashMapConverter.class)
     @Column(columnDefinition = "TEXT") // use text to ensure not to run into issues when there's a lot of content
-    private List<HashMap<String, String>> content;
-
-
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP) // convert from database timestamp type to java.time.LocalDateTime
-    @Column(columnDefinition = "timestamp not null default CURRENT_TIMESTAMP") // ensure default
-    private LocalDateTime createdAt;
+    private HashMap<Integer, HashMap<String, String>> content;
 
 
     // Relations
