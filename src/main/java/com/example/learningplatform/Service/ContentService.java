@@ -1,14 +1,8 @@
 package com.example.learningplatform.Service;
 
 import com.example.learningplatform.Api.ApiException.ApiException;
-import com.example.learningplatform.Model.Course;
-import com.example.learningplatform.Model.CourseItem;
-import com.example.learningplatform.Model.Order;
-import com.example.learningplatform.Model.Teacher;
-import com.example.learningplatform.Repository.CourseItemRepository;
-import com.example.learningplatform.Repository.CourseRepository;
-import com.example.learningplatform.Repository.OrderRepository;
-import com.example.learningplatform.Repository.TeacherRepository;
+import com.example.learningplatform.Model.*;
+import com.example.learningplatform.Repository.*;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,10 +10,8 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -34,17 +26,21 @@ public class ContentService {
     private final CourseItemRepository courseItemRepository;
     private final TeacherRepository teacherRepository;
     private final OrderRepository orderRepository;
+    private final StudentRepository studentRepository;
 
     private final String SERVER_FILES_FOLDER = "C:/Users/isaud/IdeaProjects/System/src/main/resources/courses_files/";
 
 
-    public record FileInfoRecord(MediaType mediaType, byte[] data) {
-    }
+//    public record FileInfoRecord(MediaType mediaType, byte[] data) {
+//    }
 
-    public String uploadCourseVideo(MultipartFile file, String teacherToken, Integer courseID, CourseItem item, String contentTitle) throws IOException, ApiException {
+    public String uploadCourseVideo(MultipartFile file, String teacherToken, Integer courseID, Integer courseItemID, String contentTitle) throws IOException, ApiException {
 
-        if (file.isEmpty()) throw new ApiException("File does not exist.");
-
+        if (file.isEmpty()) {
+            throw new ApiException("File does not exist.");
+        } else if (contentTitle == null) {
+            throw new ApiException("Title cannot be null");
+        }
 
         ////// we'll make a directory for each user in our Server and store whatever we need to retrieve x file in the database, this way is way faster than storing the files in the db as BLOB.
         Teacher teacher = teacherRepository.findTeacherByToken(teacherToken);
@@ -54,7 +50,12 @@ public class ContentService {
 
         Course course = courseRepository.findCourseById(courseID);
         if (course == null) {
-            throw new ApiException("Wrong ID, please double check the course ID");
+            throw new ApiException("Wrong course ID , please double check the ID");
+        }
+
+        CourseItem item = courseItemRepository.findCourseItemById(courseItemID);
+        if (item == null) {
+            throw new ApiException("Wrong course item ID, please double check the ID");
         }
 
         if (!Objects.equals(course.getTeacher().getId(), teacher.getId())) {
@@ -71,13 +72,17 @@ public class ContentService {
 
         ////TODO put the video duration here
         HashMap<String, String> itemContent = new HashMap<>(3) {{
+
             put("path", fileLocation);
             put("title", contentTitle);
             put("duration", "5:00 minutes");
         }};
+        ///// TODO calculate duration.
 
         item.setCourse(course);
-//        item.getContent().add(itemContent);
+
+        int currentSize = item.getContent().size();
+        item.getContent().put(currentSize == 0 ? 1 : currentSize + 1, itemContent);
 
         courseItemRepository.save(item);
 
@@ -85,42 +90,45 @@ public class ContentService {
     }
 
 
-    public Set<CourseItem> getCourseSections(Integer courseID) throws ApiException {
+    public void deleteContent(String teacherToken, Integer itemID, Integer contentID) {
 
-        Course course = courseRepository.findCourseById(courseID);
+        Teacher teacher = teacherRepository.findTeacherByToken(teacherToken);
 
-        if (course == null) throw new ApiException("Course was not found, double check the ID.");
+        if (teacher == null) {
+            throw new ApiException("Teacher token is incorrect");
+        }
 
-        Set<CourseItem> courseItems = course.getCourseItems();
+        CourseItem itemContentToDelete = courseItemRepository.findCourseItemById(itemID);
 
-        if (courseItems.isEmpty()) throw new ApiException("This course is still empty, try adding items to it.");
+        if (itemContentToDelete == null) {
+            throw new ApiException("Could not find course item");
+        }
 
-        return courseItems;
+        if (!Objects.equals(itemContentToDelete.getCourse().getTeacher().getId(), teacher.getId())) {
+            throw new ApiException("This item does not belong to the teacher");
+        }
+
+
+        if (!itemContentToDelete.getContent().containsKey(contentID)) {
+            throw new ApiException("Wrong content ID, double check the ID.");
+        }
+
+        itemContentToDelete.getContent().remove(contentID);
+
+        courseItemRepository.save(itemContentToDelete);
+
     }
 
+    public byte[] getCourseItemVideo(Integer courseID, String studentToken, String fileLocation) throws IOException, ApiException {
 
-    ///// all of these
-    public byte[] downloadFileById(Integer courseID, Integer studentID, String fileLocation) throws IOException, ApiException {
+        Student student = studentRepository.findStudentByToken(studentToken);
 
+        Order purchasedCourse = orderRepository.findOrderByStudentIdAndCourseId(student.getId(), courseID);
 
-        ///// TODO change this to check by course_id and student_id when the relation is done
-        Order purchasesCourse = orderRepository.findOrderById(0000);
-
-        if (purchasesCourse == null) {
+        if (purchasedCourse == null) {
             throw new ApiException("You have not purchased this course");
         }
 
-
-        byte[] file;
-
-        try {
-
-            file = Files.readAllBytes(new File(fileLocation).toPath());
-        } catch (NoSuchFileException e) {
-            throw new ApiException("File path is invalid.");
-        }
-
-        return file;
-
+        return Files.readAllBytes(new File(fileLocation).toPath());
     }
 }

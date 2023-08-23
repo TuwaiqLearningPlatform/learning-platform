@@ -9,4 +9,6 @@ public interface CourseItemRepository extends JpaRepository<CourseItem, Integer>
 
     CourseItem findCourseItemById(Integer id);
 
+    CourseItem findCourseItemByIdAndCourseId(Integer id, Integer courseID);
+
 }
