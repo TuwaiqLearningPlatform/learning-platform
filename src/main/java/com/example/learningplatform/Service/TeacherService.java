@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -94,6 +95,7 @@ public class TeacherService {
         teacher.setPassword(LoginService.encryptPassword(teacherDTO.getPassword()));
         teacher.setEmail(teacherDTO.getEmail());
         teacher.setYearsOfExperience(teacherDTO.getYearsOfExperience());
+        teacher.setToken(UUID.randomUUID().toString());
 
         return teacher;
     }

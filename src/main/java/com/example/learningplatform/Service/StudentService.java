@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -71,17 +72,18 @@ public class StudentService {
         student.setPassword(studentDTO.getPassword());
         student.setUsername(studentDTO.getUsername());
         student.setBalance(studentDTO.getBalance());
+        student.setToken(UUID.randomUUID().toString());
 
         return student;
     }
 
     private void uniqueChecks(Student student) {
 
-        if(studentRepository.checkEmail(student.getEmail()) != null) {
+        if (studentRepository.checkEmail(student.getEmail()) != null) {
             throw new ApiException("the email is used.");
         }
 
-        if(studentRepository.checkUsername(student.getUsername()) != null) {
+        if (studentRepository.checkUsername(student.getUsername()) != null) {
             throw new ApiException("the username is used.");
         }
     }
