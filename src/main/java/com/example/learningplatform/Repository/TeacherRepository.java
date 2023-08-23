@@ -13,6 +13,8 @@ public interface TeacherRepository extends JpaRepository<Teacher, Integer> {
     Teacher findTeacherById(Integer id);
     Teacher findTeacherByToken(String token);
 
+    Teacher findTeacherByUsernameAndPassword(String username, String password);
+
     @Query("SELECT t FROM teachers t WHERE t.name LIKE '%' || ?1 || '%'")
     List<Teacher> lookForTeachersByName(String name);
 
