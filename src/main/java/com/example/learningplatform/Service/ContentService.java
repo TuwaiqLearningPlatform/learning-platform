@@ -110,17 +110,6 @@ public class ContentService {
             throw new ApiException("You have not purchased this course");
         }
 
-
-        byte[] file;
-
-        try {
-
-            file = Files.readAllBytes(new File(fileLocation).toPath());
-        } catch (NoSuchFileException e) {
-            throw new ApiException("File path is invalid.");
-        }
-
-        return file;
-
+        return Files.readAllBytes(new File(fileLocation).toPath());
     }
 }
