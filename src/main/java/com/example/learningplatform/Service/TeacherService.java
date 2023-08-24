@@ -33,6 +33,16 @@ public class TeacherService {
         return teacher;
     }
 
+    public String getRevenue(String token) throws ApiException {
+        Teacher teacher = teacherRepository.findTeacherByToken(token);
+
+        if (teacher == null) {
+            throw new ApiException("teacher not found.");
+        }
+
+        return teacher.getRevenue().toString();
+    }
+
     public Teacher addTeacher(TeacherDTO teacherDTO) throws ApiException {
         Teacher teacher = setTeacherAttributes((new Teacher()), teacherDTO);
 

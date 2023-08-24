@@ -29,6 +29,12 @@ public class TeachersController {
         return ResponseEntity.ok(new ApiResponse<>(teacherService.findAll()));
     }
 
+    @GetMapping("/get/revenue/{teacherToken}")
+    public ResponseEntity<?> GetRevenue(@PathVariable String teacherToken) {
+
+        return ResponseEntity.ok(new ApiResponse<>("Your total revenue is: " + teacherService.getRevenue(teacherToken)));
+    }
+
     @PostMapping("/add")
     public ResponseEntity<ApiResponseWithMessage<Teacher>> addTeacher(@RequestBody @Valid TeacherDTO teacherDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body((new ApiResponseWithMessage<>("the teacher have been created.", teacherService.addTeacher(teacherDTO))));
