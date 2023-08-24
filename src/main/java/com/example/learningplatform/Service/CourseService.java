@@ -96,7 +96,7 @@ public class CourseService {
 
 
     private Course setCourseAttributes(Course course, CourseDTO courseDTO) {
-        course.setTitle(course.getTitle());
+        course.setTitle(courseDTO.getTitle());
         course.setCourseImg(courseDTO.getCourseImg());
         course.setDescription(courseDTO.getDescription());
         course.setPrice(courseDTO.getPrice());
