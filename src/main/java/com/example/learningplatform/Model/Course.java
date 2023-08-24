@@ -2,6 +2,9 @@ package com.example.learningplatform.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,9 +27,13 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @NotEmpty(message = "the title field is required.")
     @Column(nullable = false)
     private String title;
 
+
+    @NotNull(message = "the price field is required.")
+    @PositiveOrZero(message = "the price must be either 0 or positive number.")
     @Column(nullable = false)
     private Integer price;
 
@@ -41,9 +48,11 @@ public class Course {
     @Column(columnDefinition = "timestamp not null default CURRENT_TIMESTAMP") // ensure default
     private LocalDateTime lastUpdate;
 
-    private String description = null; // this can be updated later.
+    @Column()
+    private String description; // this can be updated later.
 
-    private String courseImg = "path/to/default_thumbnail.png"; // this also can be updated later.
+    @Column()
+    private String courseImg; // this also can be updated later.
 
 
     // Relations
