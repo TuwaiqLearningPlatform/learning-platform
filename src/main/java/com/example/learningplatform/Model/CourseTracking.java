@@ -2,6 +2,7 @@ package com.example.learningplatform.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,6 +19,7 @@ public class CourseTracking {
     @Id
     private Integer id;
 
+    @NotNull(message = "the isCompleted field is required.")
     @Column(columnDefinition = "bit(1) default 0")
     private Boolean isCompleted = false;
 
