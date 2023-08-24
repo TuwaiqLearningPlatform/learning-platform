@@ -1,0 +1,1233 @@
+{
+	"info": {
+		"_postman_id": "98ed6dd4-dc78-4f81-9885-0c5c355aebd8",
+		"name": "1 learning platform capstone 3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21707573"
+	},
+	"item": [
+		{
+			"name": "1 - teachers",
+			"item": [
+				{
+					"name": "get all teachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find teacher by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/search/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"search",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search for teachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/search/name/abdullah",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"search",
+								"name",
+								"abdullah"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Teacher 1\",\n    \"username\": \"teacher1\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"teacher1@saudi.sa\",\n    \"yearsOfExperience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add teacher 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Teacher 2\",\n    \"username\": \"teacher2\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"teacher2@saudi.sa\",\n    \"yearsOfExperience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update teacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abdullah Alharbi\",\n    \"username\": \"abdullah1\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"alharbi@saudi.sa\",\n    \"yearsOfExperience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2 - student",
+			"item": [
+				{
+					"name": "get all students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/students/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find teacher by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/students/search/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"search",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abdullah\",\n    \"username\": \"abdullah2\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"alharbi1@saudi.sa\",\n    \"yearsOfExperience\": 2,\n    \"balance\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/students/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update teacher",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abdullah Alharbi\",\n    \"username\": \"abdullah1\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"alharbi@saudi.sa\",\n    \"yearsOfExperience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 - course",
+			"item": [
+				{
+					"name": "get all courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find course by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"intro to python\",\n    \"price\": 250,\n    \"description\": \"test\",\n    \"courseImg\": \"new-image.png\",\n    \"isActive\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/add/f3095b4e-3fa7-48f9-aacf-23b17d55bad8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"add",
+								"f3095b4e-3fa7-48f9-aacf-23b17d55bad8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"intro to java\",\n    \"price\": 350,\n    \"description\": \"test\",\n    \"courseImg\": \"new-image.png\",\n    \"isActive\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/add/47b1873c-002c-4da6-83c6-f17098a969c3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"add",
+								"47b1873c-002c-4da6-83c6-f17098a969c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update teacher Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abdullah Alharbi\",\n    \"username\": \"abdullah1\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"alharbi@saudi.sa\",\n    \"yearsOfExperience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user Copy 2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"delete",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3 - course item",
+			"item": [
+				{
+					"name": "get all course items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/2/items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"2",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Section 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/add/f3095b4e-3fa7-48f9-aacf-23b17d55bad8/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"add",
+								"f3095b4e-3fa7-48f9-aacf-23b17d55bad8",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course item 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"java intro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/add/47b1873c-002c-4da6-83c6-f17098a969c3/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"add",
+								"47b1873c-002c-4da6-83c6-f17098a969c3",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add content",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4 - login",
+			"item": [
+				{
+					"name": "teacher login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login/teacher/teacher2/12345678@!aA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"teacher",
+								"teacher2",
+								"12345678@!aA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login/student/abdullah1/12345678@!aA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"student",
+								"abdullah1",
+								"12345678@!aA"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "5 - certificate",
+			"item": [
+				{
+					"name": "read certificate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/1_Abdullah_certificate.png",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"1_Abdullah_certificate.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "generate certificate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/certificates/generate/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"certificates",
+								"generate",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "6 - upload video",
+			"item": [
+				{
+					"name": "upload video",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/alharbi/Downloads/video_1080p.mp4"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/add-content/f3095b4e-3fa7-48f9-aacf-23b17d55bad8/1/1?contentTitle=welcome video",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"add-content",
+								"f3095b4e-3fa7-48f9-aacf-23b17d55bad8",
+								"1",
+								"1"
+							],
+							"query": [
+								{
+									"key": "contentTitle",
+									"value": "welcome video"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload video 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/alharbi/Downloads/video_1080p.mp4"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/add-content/47b1873c-002c-4da6-83c6-f17098a969c3/2/2?contentTitle=welcome video",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"add-content",
+								"47b1873c-002c-4da6-83c6-f17098a969c3",
+								"2",
+								"2"
+							],
+							"query": [
+								{
+									"key": "contentTitle",
+									"value": "welcome video"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WorkFlow",
+			"item": [
+				{
+					"name": "get all teachers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Teacher 1\",\n    \"username\": \"teacher1\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"teacher1@saudi.sa\",\n    \"yearsOfExperience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "teacher login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login/teacher/teacher1/12345678@!aA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"teacher",
+								"teacher1",
+								"12345678@!aA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"intro to python\",\n    \"price\": 250,\n    \"description\": \"test\",\n    \"courseImg\": \"new-image.png\",\n    \"isActive\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/add/13dc7867-5ce8-4505-a94d-6e15ff6b8e3b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"add",
+								"13dc7867-5ce8-4505-a94d-6e15ff6b8e3b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course item Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Section 2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/add/13dc7867-5ce8-4505-a94d-6e15ff6b8e3b/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"add",
+								"13dc7867-5ce8-4505-a94d-6e15ff6b8e3b",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload video",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/isaud/Documents/test_files/Gold Leaves for G. K. Chesterton.mp3"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/add-content/13dc7867-5ce8-4505-a94d-6e15ff6b8e3b/1/1?contentTitle=welcome video",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"add-content",
+								"13dc7867-5ce8-4505-a94d-6e15ff6b8e3b",
+								"1",
+								"1"
+							],
+							"query": [
+								{
+									"key": "contentTitle",
+									"value": "welcome video"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add teacher 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Teacher 2\",\n    \"username\": \"teacher2\",\n    \"password\": \"12345678@!aA\",\n    \"email\": \"teacher2@saudi.sa\",\n    \"yearsOfExperience\": 2\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "teacher 2 login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login/teacher/teacher2/12345678@!aA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"teacher",
+								"teacher2",
+								"12345678@!aA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"intro to java\",\n    \"price\": 350,\n    \"description\": \"test\",\n    \"courseImg\": \"new-image.png\",\n    \"isActive\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/courses/add/47b1873c-002c-4da6-83c6-f17098a969c3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"courses",
+								"add",
+								"47b1873c-002c-4da6-83c6-f17098a969c3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add course item 2 Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"java intro\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/course-items/add/47b1873c-002c-4da6-83c6-f17098a969c3/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"course-items",
+								"add",
+								"47b1873c-002c-4da6-83c6-f17098a969c3",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/students/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Abdullah\",\n    \"balance\": 10000,\n    \"email\": \"alharbi1@saudi.sa\",\n    \"username\": \"student1\",\n    \"password\": \"12345678@!aA\"\n    \n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/students/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"students",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student login",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/login/student/student1/12345678@!aA",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"student",
+								"student1",
+								"12345678@!aA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "buy course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/orders/buy/1/fca53ab9-3547-4429-a469-2585d27cd936",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"orders",
+								"buy",
+								"1",
+								"fca53ab9-3547-4429-a469-2585d27cd936"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get teacher revenue",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/teachers/get/revenue/13dc7867-5ce8-4505-a94d-6e15ff6b8e3b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"teachers",
+								"get",
+								"revenue",
+								"13dc7867-5ce8-4505-a94d-6e15ff6b8e3b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
