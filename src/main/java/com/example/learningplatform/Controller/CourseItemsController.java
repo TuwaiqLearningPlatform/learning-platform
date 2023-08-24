@@ -27,8 +27,8 @@ public class CourseItemsController {
     }
 
 
-    @GetMapping("/get-video/{courseID}/{studentToken}/{filePath}")
-    public ResponseEntity<?> getCourseItemVideo(@PathVariable Integer courseID, @PathVariable String studentToken, @PathVariable String filePath) throws IOException {
+    @GetMapping("/get-video/{courseID}/{studentToken}")
+    public ResponseEntity<?> getCourseItemVideo(@PathVariable Integer courseID, @PathVariable String studentToken, @RequestParam("filePath") String filePath) throws IOException {
 
         return ResponseEntity.ok(contentService.getCourseItemVideo(courseID, studentToken, filePath));
 

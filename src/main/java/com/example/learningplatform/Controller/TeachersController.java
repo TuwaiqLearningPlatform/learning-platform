@@ -29,7 +29,7 @@ public class TeachersController {
         return ResponseEntity.ok(new ApiResponse<>(teacherService.findAll()));
     }
 
-    @GetMapping("/get/revenue/{teacherToken}")
+    @PostMapping("/get/revenue/{teacherToken}")
     public ResponseEntity<?> GetRevenue(@PathVariable String teacherToken) {
 
         return ResponseEntity.ok(new ApiResponse<>("Your total revenue is: " + teacherService.getRevenue(teacherToken)));
