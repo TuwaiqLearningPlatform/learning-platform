@@ -28,8 +28,8 @@ public class ContentService {
     private final OrderRepository orderRepository;
     private final StudentRepository studentRepository;
 
-    private final String SERVER_FILES_FOLDER = "C:/Users/isaud/IdeaProjects/System/src/main/resources/courses_files/";
-
+    private final String SERVER_FILES_FOLDER = "/home/alharbi/IdeaProjects/learning-platform/src/main/resources/courses_files/";
+//    private final String SERVER_FILES_FOLDER = "C:/Users/isaud/IdeaProjects/System/src/main/resources/courses_files/";
 
 //    public record FileInfoRecord(MediaType mediaType, byte[] data) {
 //    }
@@ -63,7 +63,7 @@ public class ContentService {
         }
 
 
-        String fileLocation = SERVER_FILES_FOLDER + teacher.getId() + "/" + course.getId() + "/" + item.getId() + "/" + file.getOriginalFilename();
+        String fileLocation = SERVER_FILES_FOLDER + "teacher_" + teacher.getId() + "/course_" + course.getId() + "/item_" + item.getId() + "/" + file.getOriginalFilename();
 
         Files.createDirectories(Paths.get(fileLocation));
 

@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.Set;
 
@@ -42,10 +43,16 @@ public class CourseItemService {
         }
 
         ///// Assignment
-        courseForItem.getCourseItems().add(item);
-        courseRepository.save(courseForItem);
+
+        item.setCourse(courseForItem);
 
         courseItemRepository.save(item);
+
+//
+        courseForItem.getCourseItems().add(item);
+
+        courseRepository.save(courseForItem);
+
 
     }
 
@@ -76,7 +83,12 @@ public class CourseItemService {
 
     public CourseItem setCourseItemAttributes(CourseItem item, CourseItemDTO itemDTO) {
 
-        item.setTitle(item.getTitle());
+        item.setTitle(itemDTO.getTitle());
+
+        HashMap<Integer, HashMap<String, String>> methodInput = new HashMap<>();
+
+        item.setContent(methodInput);
+
         return item;
 
     }

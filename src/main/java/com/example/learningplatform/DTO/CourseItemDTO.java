@@ -1,16 +1,18 @@
 package com.example.learningplatform.DTO;
 
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 
 @Getter
-@Setter
+@Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class CourseItemDTO {
 
+
+    @Getter
+    @Setter
     @NotEmpty(message = "the title field is required.")
     private String title;
 
