@@ -1,5 +1,6 @@
 package com.example.learningplatform.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,15 +26,19 @@ public class Certificate {
     @Column(columnDefinition = "timestamp not null default CURRENT_TIMESTAMP") // ensure default
     private LocalDateTime createdAt;
 
+    private String path;
+
 
     // Relations
 
     @ManyToOne
     @JoinColumn(name = "student_id", referencedColumnName = "id")
+    @JsonIgnore
     private Student student;
 
     @ManyToOne
     @JoinColumn(name = "course_id", referencedColumnName = "id")
+    @JsonIgnore
     private Course course;
 
 
