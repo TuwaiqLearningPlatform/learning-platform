@@ -53,7 +53,7 @@ public class Teacher {
     @Column(nullable = false)
     private Integer yearsOfExperience;
 
-    private String token = null;
+    private String token;
 
 
     // Relations

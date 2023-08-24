@@ -25,7 +25,7 @@ public class Course {
     private Integer id;
 
     @Column(nullable = false)
-    private String name;
+    private String title;
 
     @Column(nullable = false)
     private Integer price;
