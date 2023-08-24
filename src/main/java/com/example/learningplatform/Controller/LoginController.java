@@ -15,14 +15,14 @@ public class LoginController {
 
 
     //// post to display sensitive data
-    @PostMapping("/teacher/{username}/{password}")
+    @GetMapping("/teacher/{username}/{password}")
     public ResponseEntity<?> teacherLogin(@PathVariable String username, @PathVariable String password) {
 
         String token = loginService.teacherLogin(username, password);
         return ResponseEntity.ok("Login successful your token is: " + token);
     }
 
-    @PostMapping("/student/{username}/{password}")
+    @GetMapping("/student/{username}/{password}")
     public ResponseEntity<?> studentLogin(@PathVariable String username, @PathVariable String password) {
 
         String token = loginService.studentLogin(username, password);

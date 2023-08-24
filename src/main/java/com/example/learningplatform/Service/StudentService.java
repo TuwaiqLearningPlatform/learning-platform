@@ -69,7 +69,7 @@ public class StudentService {
     private Student setStudentAttributes(Student student, StudentDTO studentDTO) {
         student.setName(studentDTO.getName());
         student.setEmail(studentDTO.getEmail());
-        student.setPassword(studentDTO.getPassword());
+        student.setPassword(LoginService.encryptPassword(studentDTO.getPassword()));
         student.setUsername(studentDTO.getUsername());
         student.setBalance(studentDTO.getBalance());
         student.setToken(UUID.randomUUID().toString());
