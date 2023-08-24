@@ -129,6 +129,8 @@ public class ContentService {
             throw new ApiException("You have not purchased this course");
         }
 
+        System.out.println(fileLocation);
+
         return Files.readAllBytes(new File(fileLocation).toPath());
     }
 }
