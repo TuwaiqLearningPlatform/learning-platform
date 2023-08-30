@@ -78,4 +78,12 @@ public class Course {
     @Column(columnDefinition = "boolean not null default true ")
     private Boolean isActive = true;
 
+
+    public Course(String title, Integer price, String description, Boolean isActive, Teacher teacher) {
+        this.title = title;
+        this.price = price;
+        this.description = description;
+        this.isActive = isActive;
+        this.teacher = teacher;
+    }
 }

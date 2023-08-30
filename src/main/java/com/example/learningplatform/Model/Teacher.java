@@ -71,4 +71,14 @@ public class Teacher {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "teacher")
     private Set<Course> courses;
+
+    public Teacher(Integer id, String name, String username, String password, String email, String token, Set<Course> courses) {
+        this.id = id;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.token = token;
+        this.courses = courses;
+    }
 }
