@@ -22,25 +22,24 @@ public class CoursesController {
     private final CourseService courseService;
 
 
-
     @GetMapping("/get")
-    public ResponseEntity<ApiResponse<List<Course>>> findAll() {
-        return ResponseEntity.ok((new ApiResponse<>(courseService.findAll())));
+    public ResponseEntity<List<Course>> findAll() {
+        return ResponseEntity.ok((courseService.findAll()));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse<Course>> findById(@PathVariable Integer id) {
-        return ResponseEntity.ok((new ApiResponse<>(courseService.findById(id))));
+    public ResponseEntity<Course> findById(@PathVariable Integer id) {
+        return ResponseEntity.ok(courseService.findById(id));
     }
 
     @PostMapping("/add/{token}")
-    public ResponseEntity<ApiResponseWithMessage<Course>> addCourse(@PathVariable String token, @RequestBody @Valid CourseDTO courseDTO) {
-        return ResponseEntity.status(HttpStatus.CREATED).body((new ApiResponseWithMessage<>("the course have been created.", courseService.addCourse(token, courseDTO))));
+    public ResponseEntity<Course> addCourse(@PathVariable String token, @RequestBody @Valid CourseDTO courseDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(courseService.addCourse(token, courseDTO));
     }
 
     @PutMapping("/update/{token}/{courseId}")
-    public ResponseEntity<ApiResponseWithMessage<Course>> updateCourse(@PathVariable String token, @PathVariable Integer courseId, @RequestBody @Valid CourseDTO courseDTO) {
-        return ResponseEntity.ok((new ApiResponseWithMessage<>("the course have been updated.", courseService.updateCourse(token, courseId, courseDTO))));
+    public ResponseEntity<Course> updateCourse(@PathVariable String token, @PathVariable Integer courseId, @RequestBody @Valid CourseDTO courseDTO) {
+        return ResponseEntity.ok(courseService.updateCourse(token, courseId, courseDTO));
     }
 
     @DeleteMapping("/delete/{token}/{courseId}")
