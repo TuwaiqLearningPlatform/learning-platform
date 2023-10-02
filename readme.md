@@ -3,7 +3,7 @@
 ### Project idea: an e-learning platform similar to Udemy
 
 a 1.5 day group project with Tuwaiq's Back-end bootcamp.
-as it was a two day project there are a lot fo imporvments and refactors to be made.
+as it was a day and half day project there are a lot fo imporvments and refactors to be made.
 
 
 
