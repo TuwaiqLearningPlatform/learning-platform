@@ -8,3 +8,6 @@ as it was a day and half day project there are a lot of imporvments and refactor
 
 
 
+## Project Plan
+https://github.com/orgs/TuwaiqLearningPlatform/projects/2
+
